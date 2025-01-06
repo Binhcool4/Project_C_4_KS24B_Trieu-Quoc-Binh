@@ -26,6 +26,8 @@ int isUserInfoNotEmpty(char id[], char name[], char email[], char phone[]);
 void toggleUserStatus();
 void sortUsersByName();
 void loginUser();
+void showUserGuideline(int language);
+void aboutUs(int language);
 
 int main() {
     mainMenu();
@@ -95,7 +97,7 @@ void loginUser() { // Dang nhap nguoi dung
             printf("ID: %s\n", users[i].id);
             printf("Ten: %s\n", users[i].name);
             printf("Email: %s\n", users[i].email);
-            printf("So Ðien Thoai: %s\n", users[i].phone);
+            printf("So Dien Thoai: %s\n", users[i].phone);
             printf("Trang Thai: %s\n", users[i].status);
             break;
         }
@@ -107,6 +109,7 @@ void loginUser() { // Dang nhap nguoi dung
 }
 
 void adminMenu() {
+	int language;
     int choice;
     while(1) {
         printf("\n*** Admin Menu ***\n");
@@ -117,6 +120,8 @@ void adminMenu() {
         printf("  [4] Search Users By Id\n");
         printf("  [5] Lock/Open User\n");
         printf("  [6] Sort Users By Name\n");
+        printf("  [7] User Guideline.\n");
+        printf("  [8] About Us.\n");
         printf("  [0] Exit\n");
         printf("  ========================\n");
         printf("  Enter Your Choice: ");
@@ -141,7 +146,17 @@ void adminMenu() {
 				break;
 			case 6:
                 sortUsersByName(); //Nhap case 2 truoc thi moi hoat dong duoc
-                break;	
+                break;
+			case 7:
+				printf("Choose your language (Vietnamese = 1; English = 0): ");
+            	scanf("%d", &language);
+			    showUserGuideline(language);
+				break;
+			case 8:
+				printf("Choose your language (Vietnamese = 1; English = 0): ");
+            	scanf("%d", &language);
+            	aboutUs(language);
+				break;	
             case 0:
                 return;
             default:
@@ -177,7 +192,7 @@ void addUser(){ //case 1
     printf("Status (Open/Lock): ");
     fgets(newUser.status, sizeof(newUser.status), stdin);
     newUser.status[strcspn(newUser.status, "\n")] = 0;
-
+    //Nhap het moi kiem tra co bi rong hay khong
     if (!isUserInfoNotEmpty(newUser.id, newUser.name, newUser.email, newUser.phone)) {
         return;
     }
@@ -415,3 +430,36 @@ void sortUsersByName(){ //case 6
     displayAllUsers();
 }
 
+void showUserGuideline(int language) {
+    if (language == 1) { 
+        printf("\n*** Huong Dan Su Dung ***\n");
+        printf("1. De them moi mot nguoi dung, nhap thong tin cua ho khi duoc yeu cau.\n");
+        printf("2. De xem chi tiet mot nguoi dung, cung cap ID cua ho.\n");
+        printf("3. De khoa hoac mo khoa nguoi dung, cung cap ID cua ho va chon thao tac.\n");
+        printf("4. Hay chac chan rang tat ca thong tin la chinh xac va duoc cap nhat.\n");
+        printf("5. De biet them chi tiet hoac tro giup, vui long lien he voi chung toi qua email: support@bank.com.\n");
+        
+    } else { 
+        printf("\n*** User Guideline ***\n");
+        printf("1. To add a new user, enter their details when prompted.\n");
+        printf("2. To view a user's details, provide their user ID.\n");
+        printf("3. To lock or unlock a user, provide their user ID and choose the operation.\n");
+        printf("4. Ensure all information is accurate and up-to-date.\n");
+        printf("5. For any issues, contact support at support@bank.com.\n");
+    }
+}
+
+void aboutUs(int language) {
+    if (language == 1) { 
+        printf("\n*** Gioi Thieu Chung ***\n");
+        printf("He thong Quan Ly Tai Khoan Ngan Hang nay duoc phat trien boi Cong Ty XYZ.\n");
+        printf("De biet them chi tiet, vui long truy cap website cua chung toi: www.xyzbank.com.\n");
+        printf("Dich vu khach hang: support@bank.com\n");
+        
+    } else { 
+        printf("\n*** About Us ***\n");
+        printf("This Bank Management System was developed by XYZ Company.\n");
+        printf("For more information, visit our website at www.xyzbank.com.\n");
+        printf("Customer service: support@bank.com\n");
+    }
+}
