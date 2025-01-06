@@ -1,4 +1,0 @@
-0001,Trieu Quoc Binh,binhtrieuhn99@gmail.com,0916712986,Open
-0002,Nguyen Van A,nguyenvana@gmail.com,0915687129,Open
-0003,Nguyen Van B,nguyenvanb@gmail.com,0928712986,Open
-0004,Nguyen Van C,nguyenvanc@gmail.com,0871235679,Open
