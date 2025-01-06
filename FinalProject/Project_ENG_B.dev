@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=00000000a0000000000000000
-UnitCount=6
+UnitCount=5
 
 [VersionInfo]
 Major=1
@@ -56,16 +56,6 @@ CompileCpp=0
 Folder=
 Compile=1
 Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=product.bin
-CompileCpp=0
-Folder=data
-Compile=0
-Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
@@ -100,8 +90,17 @@ OverrideBuildCmd=0
 BuildCmd=
 CompileCpp=0
 
+[Unit7]
+FileName=user.txt
+Folder=data
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit5]
-FileName=category.bin
+FileName=user.txt
 Folder=data
 Compile=0
 Link=0
